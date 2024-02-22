@@ -1,0 +1,11 @@
+Table of Contents (TOC) for Project Files:
+
+Services.html: HTML file for the services page of the website.
+Gallery.html: HTML file for the gallery page showcasing the photographer's work.
+Contact.html: HTML file for the contact page providing means for potential clients to get in touch.
+styles.css: Cascading Style Sheets file containing the styling for all HTML pages.
+script.js: JavaScript file for adding interactivity and functionality to the website.
+images folder: Folder containing images used in the website, including portfolio photos and background images.
+fonts folder: Folder containing font files used for typography on the website.
+README.md: Markdown file providing an overview of the project and instructions for accessing and using project files.
+Project_WBS.xlsx: Excel file containing the Work Breakdown Structure (WBS) for the project, outlining tasks and components involved in website development.

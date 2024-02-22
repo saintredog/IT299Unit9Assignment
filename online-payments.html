@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Online Payments - Saints Touch Photography</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://kit.fontawesome.com/eb02980756.js" crossorigin="anonymous"></script>
+    <style>
+      body {
+            background-image: url('images/pexels-tim-mossholder-2432221.jpg');
+            background-size: cover; 
+            background-position: center; 
+            background-repeat: no-repeat; 
+        }
+
+        .wallet {
+            background-color: #f9f9f9;
+            border: 2px solid #ccc;
+            border-radius: 10px;
+            padding: 20px;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .balance {
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+        }
+        
+        .transaction {
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">
+                <h1>Saints Touch</h1>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="gallery.html">Gallery</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li class="cart-icon"><a href="#"><i class="fas fa-shopping-cart"></i></a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <div class="wallet">
+            <h2>Wallet</h2>
+            <div class="balance">Balance: $500</div>
+            <h3>Transactions</h3>
+            <div class="transaction">Payment to Saints Touch Photography - $100</div>
+            <div class="transaction">Payment to Studio - $50</div>
+            <div class="transaction">Deposit from XYZ Client - $200</div>
+            <div class="transaction">Withdrawal for Equipment Purchase - $150</div>
+            <button id="add-funds">Add Funds</button>
+            <button id="make-payment">Make Payment</button>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Saints Touch Photography. All rights reserved.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

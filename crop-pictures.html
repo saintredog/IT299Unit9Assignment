@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Cropper</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="cropper.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const fileInput = document.getElementById('file-input');
+            const imagePreview = document.getElementById('image-preview');
+            const cropButton = document.getElementById('crop-button');
+            const saveButton = document.getElementById('save-button');
+            let cropper;
+
+            fileInput.addEventListener('change', function (e) {
+                const files = e.target.files;
+                const done = function (url) {
+                    fileInput.value = '';
+                    imagePreview.innerHTML = '<img src="' + url + '" id="selected-image" alt="Selected Image">';
+                    cropButton.style.display = 'block';
+                    saveButton.style.display = 'none';
+                };
+
+                if (files && files.length > 0) {
+                    const reader = new FileReader();
+                    reader.onload = function (event) {
+                        done(reader.result);
+                    };
+                    reader.readAsDataURL(files[0]);
+                }
+            });
+
+            cropButton.addEventListener('click', function () {
+                if (!cropper) {
+                    return;
+                }
+                // Get cropped image data
+                const croppedCanvas = cropper.getCroppedCanvas();
+                if (!croppedCanvas) {
+                    alert('No image selected or failed to crop.');
+                    return;
+                }
+                // Convert canvas to data URL and display or send it
+                const croppedDataUrl = croppedCanvas.toDataURL('image/jpeg');
+                // Display cropped image preview
+                imagePreview.innerHTML = '<img src="' + croppedDataUrl + '" id="selected-image" alt="Cropped Image">';
+                
+                saveButton.style.display = 'block';
+            });
+
+            saveButton.addEventListener('click', function () {
+                if (!cropper) {
+                    return;
+                }
+                
+                const croppedCanvas = cropper.getCroppedCanvas();
+                if (!croppedCanvas) {
+                    alert('No image selected or failed to crop.');
+                    return;
+                }
+               
+                croppedCanvas.toBlob(function (blob) {
+                    
+                    const url = URL.createObjectURL(blob);
+                    
+                    const link = document.createElement('a');
+                    link.href = url;
+                    link.download = 'cropped_image.jpg';
+                    
+                    link.click();
+                    
+                    URL.revokeObjectURL(url);
+                }, 'image/jpeg');
+            });
+
+            
+            imagePreview.addEventListener('load', function () {
+                if (cropper) {
+                    cropper.destroy(); 
+                }
+                cropper = new Cropper(this, {
+                    aspectRatio: 16 / 9,
+                    viewMode: 1,
+                    autoCropArea: 1,
+                });
+                
+                cropButton.style.display = 'block';
+            }, false);
+        });
+    </script>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">
+                <h1>Saints Touch</h1>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="gallery.html">Gallery</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li class="cart-icon"><a href="#"><i class="fas fa-shopping-cart"></i></a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="crop-pictures">
+            <h2><i class="fas fa-crop"></i> Crop Your Pictures</h2>
+            <div class="upload-area">
+                <input type="file" id="file-input" accept="image/jpeg" multiple>
+                <label for="file-input"><i class="fas fa-cloud-upload-alt"></i> Upload JPG Images</label>
+            </div>
+            <div id="image-preview"></div>
+            <button id="crop-button" style="display: none;">Crop Selected Image</button>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Saints Touch Photography. All rights reserved.</p>
+    </footer>
+</body>
+</html>

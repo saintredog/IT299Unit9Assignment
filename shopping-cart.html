@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order Photos - Saints Touch Photography</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://kit.fontawesome.com/eb02980756.js" crossorigin="anonymous"></script>
+    <style>
+        body {
+            background-image: url('images/pexels-karolina-grabowska-5650016.jpg');
+            background-size: cover; /* Cover the entire viewport */
+            background-position: center; /* Center the background image */
+            background-repeat: no-repeat; /* Do not repeat the background image */
+        }
+        .portrait-section {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            padding: 20px;
+        }
+        
+        .portrait-photo {
+            width: calc(25% - 20px); /* Adjust width based on container padding */
+            margin-bottom: 20px;
+            border: 2px solid #ccc;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+        
+        .portrait-photo img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">
+                <h1>Saints Touch</h1>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="gallery.html">Gallery</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li class="cart-icon"><a href="#"><i class="fas fa-shopping-cart"></i></a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Order Photos content here -->
+        <section class="order-photos">
+            <h2>Order Photos</h2>
+            <!-- Add your photo ordering form and content here -->
+            <!-- For example: -->
+            <form id="photo-order-form">
+                <label for="photo-type">Select Photo Type:</label>
+                <select id="photo-type" name="photo-type">
+                    <option value="portrait">Portrait</option>
+                    <option value="landscape">Landscape</option>
+                    <!-- Add more options as needed -->
+                </select>
+                <!-- Add more form fields for photo options, quantity, etc. -->
+                <button type="submit">Add to Cart</button>
+            </form>
+        </section>
+        <section class="portrait-section">
+            <div class="portrait-photo">
+                <img src="my actual photos/_MG_4586-Edit.jpg" alt="Portrait 1">
+            </div>
+            <div class="portrait-photo">
+                <img src="my actual photos/_MG_6058-Edit.jpg" alt="Portrait 2">
+            </div>
+            <div class="portrait-photo">
+                <img src="my actual photos/IMG_7191.jpg" alt="Portrait 3">
+            </div>
+            <div class="portrait-photo">
+                <img src="my actual photos/IMG_7112.jpg" alt="Portrait 4">
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Saints Touch Photography. All rights reserved.</p>
+    </footer>
+
+    <div class="shopping-cart">
+        <button class="close-btn">&times;</button>
+        <ul class="cart-items"></ul>
+        <button id="proceed-to-checkout">Proceed to Checkout</button>
+    </div>
+
+    <script src="script.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const photoOrderForm = document.getElementById('photo-order-form');
+            const shoppingCart = document.querySelector('.shopping-cart');
+        
+            // Handle form submission
+            photoOrderForm.addEventListener('submit', function (event) {
+                event.preventDefault(); // Prevent default form submission
+        
+                // Get selected photo type
+                const photoType = document.getElementById('photo-type').value;
+        
+                // Create new cart item element
+                const cartItem = document.createElement('li');
+                cartItem.textContent = `Photo Type: ${photoType}`; // Customize text as needed
+        
+                // Append cart item to shopping cart
+                shoppingCart.querySelector('.cart-items').appendChild(cartItem);
+            });
+        });
+    </script>
+</body>
+</html>

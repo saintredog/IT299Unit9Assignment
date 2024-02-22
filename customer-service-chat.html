@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Customer Service Chat</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-xpV02MZElgKiJO8EG4NxqzmEiM9ZVDgSw4ImV8L0XuA8gF1+yRZkNP/z3M9KtLjtkz1EQvm8X4oOY/y/2wbJw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+      body {
+        background-color: #f9f9f9; 
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+    }
+    body {
+    background-image: url('images/pexels-tim-mossholder-942317.jpg');
+    background-size: cover; 
+    background-position: center; 
+}
+
+    
+    #chat-container {
+        background-color: #fff; 
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+        border-radius: 10px;
+        padding: 20px;
+        max-width: 400px;
+        width: 100%;
+    }
+
+
+        #chat-container {
+            background-color: #fff;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            padding: 20px;
+            max-width: 400px;
+            width: 100%;
+        }
+
+        h1 {
+            color: #333;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        #chat-messages {
+            height: 300px;
+            overflow-y: scroll;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            margin-bottom: 20px;
+        }
+
+        #chat-form {
+            display: flex;
+        }
+
+        #message-input {
+            flex: 1;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px 0 0 5px;
+            outline: none;
+        }
+
+        #message-input:focus {
+            border-color: #1086e8;
+        }
+
+        #message-input::placeholder {
+            color: #aaa;
+        }
+
+        button[type="submit"] {
+            background-color: #1086e8;
+            color: #fff;
+            border: none;
+            border-radius: 0 5px 5px 0;
+            padding: 10px 20px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            outline: none;
+        }
+
+        button[type="submit"]:hover {
+            background-color: #0a6ebd;
+        }
+
+        button[type="submit"]:focus {
+            outline: none;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">
+                <h1>Saints Touch</h1>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="gallery.html">Gallery</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="chat-container">
+            <h1>Customer Service Chat</h1>
+            <div id="chat-messages">
+                
+            </div>
+            <form id="chat-form">
+                <input type="text" id="message-input" placeholder="Type your message...">
+                <button type="submit"><i class="fas fa-paper-plane"></i></button>
+            </form>
+        </section>
+    </main>
+
+    <footer>
+        
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
